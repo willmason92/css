@@ -16,13 +16,13 @@ class FeedsTableSeeder extends Seeder
 
             DB::table('feeds')->insert([
 
-                /*[
+                [
                     'feed_link' => 'https://www.alanpaine.co.uk/feeds/google/shopping_gbp.xml',
                     'company' => 'Alan Paine',
                     'last_update' => NULL,
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
-                ],*/
+                ],
                 [
                     'feed_link' => 'https://www.internetgardener.co.uk/feeds/googlemerchantcenter/googlemerchant.xml',
                     'company' => 'Internet Gardener',
@@ -30,7 +30,7 @@ class FeedsTableSeeder extends Seeder
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
                 ],
-                /*[
+                [
                     'feed_link' => 'https://www.hartsfurniture.co.uk/feeds/GoogleShopping.xml',
                     'company' => 'Harts Furniture',
                     'last_update' => NULL,
@@ -43,7 +43,7 @@ class FeedsTableSeeder extends Seeder
                     'last_update' => NULL,
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
-                ],*/
+                ],
 
             ]);
 
