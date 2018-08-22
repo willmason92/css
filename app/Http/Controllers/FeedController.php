@@ -95,7 +95,7 @@ class FeedController extends Controller
      */
     public function destroy($id)
     {
-        User::destroy($id);
+        Feed::destroy($id);
 
         return back()->withSuccess(trans('app.success_destroy')); 
     }
