@@ -12,7 +12,7 @@
 								</div>
 							</div>
 							<div class="peer peer-greed">
-								<h5 class="lh-1 mB-0 logo-text">Impression</h5>
+								<h5 class="lh-1 mB-0 logo-text"></h5>
 							</div>
 						</div>
 					</a>
