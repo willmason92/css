@@ -1,9 +1,5 @@
-# Laradminator
-**_[Laravel](https://laravel.com/) PHP Framework with [Adminator](https://github.com/puikinsh/Adminator-admin-dashboard)_**  as admin dash
-
-
 ## Setup:
-All you need is to run these commands:
+Run these commands:
 ```bash
 composer install                   # Install backend dependencies
 cp .env.example .env               # Update database credentials configuration
