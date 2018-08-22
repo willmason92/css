@@ -32,9 +32,9 @@
           </div>
 
       <!-- Page Features -->
-      <div class="row text-center" >
-        <!-- Croud layout commerce-croud -->
-        <div class="col-lg-4 col-md-3 col xs-2" style="padding:50px;" v-for="product in filteredList">
+      <div class="row text-center" v-for="product in filteredList">
+
+        <div class="col-lg-12 col-md-12" style="padding:50px;">
           <div class="card">
             <img class="card-img-top" :src="product.image" alt="@{{product.name}}">
             <div class="card-body">
@@ -42,7 +42,7 @@
               <p class="card-text">@{{product.price}}</p>
             </div>
             <div class="card-footer">
-              <a :href="'/product/'+product.unique_identifier" class="btn btn-primary">Compare</a>
+              <a :href="'/product/'+product.unique_identifier" class="btn btn-primary">View</a>
             </div>
           </div>
         </div>

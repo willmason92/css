@@ -2,7 +2,7 @@
 <html>
   <head>
     <?php #dd($ob);?>
-    <?php #dd($title);?>
+    <?php #dd($product_availability);?>
     <title>Item {{ $product->id }}</title>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
@@ -57,6 +57,9 @@ div.section > div > input {margin:0;padding-left:5px;font-size:10px;padding-righ
                     </div>
 
                     <div class="row">
+                      <div class="col-xs-3">
+                        <img class="img-responsive" @click="copySrc" src="{{$product->image_link}}">
+                      </div>
                         @foreach($images as $image)
                       <div class="col-xs-3">
                         <img class="img-responsive" @click="copySrc" src="{{$image->image_link}}" />
@@ -81,7 +84,7 @@ div.section > div > input {margin:0;padding-left:5px;font-size:10px;padding-righ
 
                     <!-- Precios -->
                     <h6 class="title-price"><small>Cost</small></h6>
-                    <h3 style="margin-top:0px;">£{{$product->price}}</h3>
+                    <h3 style="margin-top:0px;">£{{$product_availability->price}}</h3>
         
                     <!-- Detalles especificos del producto -->
                     <div class="section">
@@ -164,7 +167,7 @@ div.section > div > input {margin:0;padding-left:5px;font-size:10px;padding-righ
 </script>
 <script type="text/javascript">
 
-var image = "{{$product->image}}";
+var image = "{{$product->image_link}}";
 
 // NOTE: I've added a comma which will be needed to delimit each array within the array.
 //       Quotes will also be needed since lat and long are not integers.

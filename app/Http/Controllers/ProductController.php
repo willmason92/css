@@ -1,11 +1,13 @@
 <?php
 
-namespace Laravel\Http\Controllers;
+namespace App\Http\Controllers;
 
-use Laravel\Http\Controllers\Controller;
-use Laravel\Product;
-use Laravel\Image;
 use Illuminate\Http\Request;
+use App\Product;
+use App\Image;
+use App\Detail;
+use App\Identifier;
+use App\Availability;
 
 class ProductController extends Controller
 {
@@ -60,8 +62,18 @@ class ProductController extends Controller
 
         #$product = Product::find($id);
         $product = Product::where('unique_identifier', '=', $id)->first();
-        $product_images = Image::where('product_id','=',$id)->get();;
-        return view('products.show', array('product' => $product, 'images' => $product_images /*, 'title' => $title*/));
+        $product_images = Image::where('product_id','=',$id)->get();
+        $product_details = Detail::where('product_id','=',$id)->first();
+        $product_identifier = Identifier::where('product_id','=',$id)->first();
+        $product_availability = Availability::where('product_id','=',$id)->first();
+        return view('products.show', 
+            array(
+                'product' => $product, 
+                'images' => $product_images, 
+                'product_details' => $product_details, 
+                'product_identifier' => $product_identifier, 
+                'product_availability' => $product_availability, 
+            ));
     }
 
     /**

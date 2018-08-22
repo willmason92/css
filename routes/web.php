@@ -1,21 +1,24 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Product;
+use App\Image;
 
-use Illuminate\Http\Request;
-use Laravel\Data;
-use Laravel\Product;
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+Auth::routes();
+
+/*
+|------------------------------------------------------------------------------------
+| Admin
+|------------------------------------------------------------------------------------
+*/
+Route::group(['prefix' => ADMIN, 'as' => ADMIN . '.', 'middleware'=>['auth', 'Role:0']], function() {
+    Route::get('/', 'DashboardController@index')->name('dash');
+    Route::resource('users', 'UserController');
+    Route::resource('feeds', 'FeedController');
 });
 
 Route::get('product', function()
@@ -28,31 +31,8 @@ Route::get('products/{id}', function($id)
 });
 Route::resource('product','ProductController');
 
-Route::post('/vueitems', function(Request $req){
-   $posts = new Data();
-   $posts->title  = $req->title;
-   $posts->link  = $req->link;
-   $posts->image  = $req->image;
-   $posts->save();
-});
-Route::get('/vueitems',function(){
-  $posts = Data::all();
-  return $posts;
-});
 Route::get('/getproducts',function(){
   $products = Product::all();
   return $products;
 });
 
-Route::post('/getproducts', function(Request $req){
-   $products = new Data();
-   $products->name  = $req->name;
-   $products->description  = $req->description;
-   $products->units  = $req->units;
-   $products->price  = $req->price;
-   $products->image  = $req->image;
-   $products->save();
-});
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
