@@ -17,6 +17,7 @@ class ProductsTableSeeder extends Seeder
         DB::table('products')->delete();
         DB::table('products_availability')->delete();
         DB::table('products_identifiers')->delete();
+        DB::table('products_detailed_description')->delete();
         DB::table('products_images')->delete();
 
         $feeds = DB::table('feeds')->get();

@@ -2,7 +2,7 @@
 
 use App\Product;
 use App\Image;
-
+use App\Detail;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -31,8 +31,16 @@ Route::get('products/{id}', function($id)
 });
 Route::resource('product','ProductController');
 
+/*Route::get('/getproducts',function(){
+  $products = Product::all()->take(10);
+  $detail = Detail::all()->take(10);
+  return compact('products','detail');
+});*/
+
 Route::get('/getproducts',function(){
-  $products = Product::all();
-  return $products;
+  $products = Product::all()->take(10);
+  $detail = Detail::all()->take(10);
+  $data = array($products,$detail);
+  return $data;
 });
 

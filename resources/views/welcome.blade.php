@@ -32,11 +32,11 @@
           </div>
 
       <!-- Page Features -->
-      <div class="row text-center" v-for="product in filteredList">
+      <div class="row text-center">
 
-        <div class="col-lg-12 col-md-12" style="padding:50px;">
+        <div class="col-lg-2 col-md-2" style="padding:50px;" v-for="product in filteredList">
           <div class="card">
-            <img class="card-img-top" :src="product.image" alt="@{{product.name}}">
+            <img class="card-img-top" :src="product.image_link" alt="@{{product.name}}" >
             <div class="card-body">
               <h4 class="card-title">@{{product.name}}</h4>
               <p class="card-text">@{{product.price}}</p>

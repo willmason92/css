@@ -19,4 +19,5 @@ class Detail extends Model
 		'size_type',
 		'size_system',
 	];
+
 }
