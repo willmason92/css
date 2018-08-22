@@ -7,7 +7,7 @@
 @section('content')
 	{!! Form::open([
 			'action' => ['FeedController@store'],
-			'files' => true
+			'files' => false
 		])
 	!!}
 
