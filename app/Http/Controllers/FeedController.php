@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Feed;
-
+use Validator;
 class FeedController extends Controller
 {
     /**
@@ -38,11 +38,10 @@ class FeedController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, Feed::rules());
-        
         Feed::create($request->all());
 
         return back()->withSuccess(trans('app.success_store'));
+        
     }
 
     /**
@@ -78,7 +77,6 @@ class FeedController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, Feed::rules(true, $id));
 
         $item = Feed::findOrFail($id);
 
