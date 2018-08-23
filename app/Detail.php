@@ -20,4 +20,7 @@ class Detail extends Model
 		'size_system',
 	];
 
+	public function product() {
+		return $this->belongsTo('App\Product','unique_identifier','product_id');
+	}
 }

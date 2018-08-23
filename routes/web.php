@@ -1,12 +1,10 @@
 <?php
 
+use App\User;
 use App\Product;
 use App\Image;
 use App\Detail;
-Route::get('/', function () {
-    return view('welcome');
-});
-
+use Illuminate\Support\Facades\Input;
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Auth::routes();
 
@@ -44,3 +42,20 @@ Route::get('/getproducts',function(){
   return $data;
 });
 
+Route::get ( '/', function () {
+	$dummyDetails = Product::with('availability')->paginate(25);
+
+	return view ( 'welcome' )->withProducts($dummyDetails);
+} );
+Route::any ( '/search', function () {
+	$q = Input::get ( 'q' );
+	if($q != ""){
+	$product = Product::where ( 'name', 'LIKE', '%' . $q . '%' )->orWhere ( 'description', 'LIKE', '%' . $q . '%' )->paginate (15)->setPath ( '' );
+	$pagination = $product->appends ( array (
+				'q' => Input::get ( 'q' ) 
+		) );
+	if (count ( $product ) > 0)
+		return view ( 'welcome' )->withDetails ( $product )->withQuery ( $q );
+	}
+		return view ( 'welcome' )->withMessage ( 'No Details found. Try to search again !' );
+} );

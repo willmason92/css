@@ -19,4 +19,7 @@ class Availability extends Model
 		'sale_price_effective_date',
 		'unit_pricing_measure',
 	];
+	public function product() {
+		return $this->belongsTo('App\Product','unique_identifier','product_id');
+	}
 }

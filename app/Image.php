@@ -12,4 +12,7 @@ class Image extends Model
 		'product_id',
 		'image_link',
 	];
+	public function product() {
+		return $this->belongsTo('App\Product','unique_identifier','product_id');
+	}
 }
