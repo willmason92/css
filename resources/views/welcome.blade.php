@@ -49,6 +49,7 @@
       </form>
     </div>
   </div>  
+  
   <div class="container">
     <?php //dd($users->availability[0]); ?>
   @if(isset($products))
