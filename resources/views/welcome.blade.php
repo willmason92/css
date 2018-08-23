@@ -35,7 +35,7 @@
 </style>
   <div class="container">
     <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3" style="display:inline-block; padding:20px;">
-      <img id="img" class="img-responsive"  style="height:34px; float:left;padding: 0 10px 0 10px;" src="images/logo-small-sq.png----">
+      <img id="img" class="img-responsive"  style="height:34px; float:left;padding: 0 10px 0 10px;" src="images/logo-small-sq.png">
       <form action="/search" method="POST" role="search">
         {{ csrf_field() }}
         <div class="input-group" style="position:relative;">
