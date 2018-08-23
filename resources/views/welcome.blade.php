@@ -61,7 +61,7 @@
             <p><b>{{$item->name}}</b></p> 
             <p><b>£{{$item->availability->price}}</b></p> 
           </div>
-          <a href="">
+          <a href="product/{{$item->unique_identifier}}">
             <button type="submit" class="btn btn-success pull-right" value="View" style="margin:-30px 5px 5px 5px;">View
             </button>
           </a>
@@ -77,12 +77,12 @@
       <h2>Product details</h2>
           @foreach($details as $user)
         <div class="card">
-          <img src="{{$item->image_link}}" alt="{{$item->description}}" style="width:100%">
+          <img src="{{$user->image_link}}" alt="{{$user->description}}" style="width:100%">
           <div class="container">
             <p><b>{{$user->name}}</b></p> 
             <p><b>£{{$user->availability->price}}</b></p> 
           </div>
-          <a href="">
+          <a href="product/{{$user->unique_identifier}}">
             <button type="submit" class="btn btn-success pull-right" value="View" style="margin:-30px 5px 5px 5px;">View
             </button>
           </a>
