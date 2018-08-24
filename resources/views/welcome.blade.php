@@ -32,6 +32,7 @@
 
   word-break: break-all;
 }
+
 </style>
   <div class="container">
     <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3" style="display:inline-block; padding:20px;">
